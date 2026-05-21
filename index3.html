@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Women — HK Fashions</title>
+</head>
+<body>
+
+<div id="one">
+    <h1><marquee>WELCOME TO HK FASHIONS 🛒</marquee></h1>
+</div>
+
+<div id="discount-banner">
+    <h2>WE ARE OFFERING 30% DISCOUNT EACH ITEM</h2>
+</div>
+
+<div id="two">
+    <ul>
+        <li><a href="index1.html">Home</a></li>
+        <li><a href="index2.html">Men</a></li>
+        <li><a href="index3.html">Women</a></li>
+        <li><a href="index4.html">About Us</a></li>
+    </ul>
+</div>
+
+<div class="page-title">
+    <h2>Women's Collection</h2>
+    <p>All items — 30% off</p>
+</div>
+
+<!-- ═══ IMAGE GRID — edit name & price in each onclick ═══ -->
+<div id="image-grid" class="grid-4">
+
+    <div class="item" onclick="openModal('wom1.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom1.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('wom2.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom2.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('wom3.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom3.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('wom4.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom4.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('wom5.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom5.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('wom6.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom6.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('wom7.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom7.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('wom8.webp', 'Item Name', 5000, 'Women\'s')">
+        <img src="wom8.webp" alt="Item">
+        <div class="price-tag">
+            <span class="item-name">Item Name</span>
+            <span class="original">MK 5,000</span>
+            <span class="discounted">MK 3,500</span>
+        </div>
+    </div>
+
+</div>
+
+<!-- Popup Modal -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal">
+        <button class="modal-close" onclick="closeModal()">✕</button>
+        <img class="modal-img" id="modalImg" src="" alt="">
+        <div class="modal-body">
+            <div class="modal-tags">
+                <span class="modal-badge">HK Fashions</span>
+                <span class="modal-section" id="modalSection"></span>
+            </div>
+            <h3 id="modalName"></h3>
+            <div class="modal-prices">
+                <span class="was" id="modalWas"></span>
+                <span class="now" id="modalNow"></span>
+                <span class="save">30% OFF</span>
+            </div>
+            <p class="modal-desc">High quality women's fashion item available now at HK Fashions. Limited stock — order yours today before it runs out!</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    function openModal(img, name, price, section) {
+        var discounted = Math.round(price * 0.7);
+        document.getElementById('modalImg').src = img;
+        document.getElementById('modalName').textContent = name;
+        document.getElementById('modalWas').textContent = 'MK ' + price.toLocaleString();
+        document.getElementById('modalNow').textContent = 'MK ' + discounted.toLocaleString();
+        document.getElementById('modalSection').textContent = section || '';
+        document.getElementById('modalOverlay').classList.add('active');
+    }
+    function closeModal() {
+        document.getElementById('modalOverlay').classList.remove('active');
+    }
+    function closeModalOutside(e) {
+        if (e.target === document.getElementById('modalOverlay')) closeModal();
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeModal();
+    });
+</script>
+
+</body>
+</html>
